@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cebu Christ Covenant Tabernacle — Welcome Home</title>
+  <style>
+    :root {
+      --primary: #2c3e50;
+      --accent: #c9a227;
+      --light: #f8f6f2;
+      --dark: #1a252f;
+      --text: #444;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Georgia', serif;
+      color: var(--text);
+      background: var(--light);
+      line-height: 1.6;
+    }
+
+    /* ---------- Header / Nav ---------- */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--primary);
+      color: #fff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 5%;
+      box-shadow: 0 2px 8px rgba(0,0,0,.2);
+    }
+
+    .logo {
+      font-size: 1.4rem;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+    .logo span { color: var(--accent); }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin-left: 1.5rem;
+      font-size: .95rem;
+      transition: color .2s;
+    }
+    nav a:hover { color: var(--accent); }
+
+    /* ---------- Hero ---------- */
+    .hero {
+      min-height: 80vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      background: linear-gradient(rgba(26,37,47,.7), rgba(26,37,47,.7)),
+        url('https://images.unsplash.com/photo-1438032403223-c910ac046a10?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+      color: #fff;
+      padding: 2rem;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.2rem, 6vw, 4rem);
+      margin-bottom: 1rem;
+      letter-spacing: 2px;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 600px;
+      margin-bottom: 2rem;
+      font-style: italic;
+    }
+
+    .btn {
+      display: inline-block;
+      background: var(--accent);
+      color: var(--dark);
+      padding: .8rem 2rem;
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: transform .2s, box-shadow .2s;
+    }
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(0,0,0,.3);
+    }
+
+    /* ---------- Sections ---------- */
+    section {
+      padding: 4rem 5%;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    section h2 {
+      text-align: center;
+      font-size: 2rem;
+      color: var(--primary);
+      margin-bottom: .5rem;
+    }
+
+    section h2::after {
+      content: "";
+      display: block;
+      width: 60px;
+      height: 3px;
+      background: var(--accent);
+      margin: .8rem auto 2rem;
+    }
+
+    /* Service times cards */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1rem;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 8px;
+      padding: 2rem 1.5rem;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,.08);
+      transition: transform .2s;
+    }
+    .card:hover { transform: translateY(-4px); }
+
+    .card .icon { font-size: 2.2rem; margin-bottom: .8rem; }
+    .card h3 { color: var(--primary); margin-bottom: .5rem; }
+
+    /* About */
+    .about-text {
+      max-width: 750px;
+      margin: 0 auto;
+      text-align: center;
+      font-size: 1.05rem;
+    }
+
+    /* Events list */
+    .event {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      background: #fff;
+      border-left: 4px solid var(--accent);
+      border-radius: 6px;
+      padding: 1.2rem 1.5rem;
+      margin-bottom: 1rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,.06);
+    }
+
+    .event-date {
+      text-align: center;
+      min-width: 70px;
+      color: var(--primary);
+    }
+    .event-date .day { font-size: 1.8rem; font-weight: bold; }
+    .event-date .month { text-transform: uppercase; font-size: .85rem; }
+
+    /* Contact */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    form input, form textarea {
+      width: 100%;
+      padding: .8rem;
+      margin-bottom: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-family: inherit;
+    }
+    form button {
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      padding: .8rem 2rem;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+    form button:hover { background: var(--accent); color: var(--dark); }
+
+    /* Footer */
+    footer {
+      background: var(--dark);
+      color: #bbb;
+      text-align: center;
+      padding: 2rem 5%;
+      font-size: .9rem;
+    }
+    footer .verse {
+      color: var(--accent);
+      font-style: italic;
+      margin-bottom: 1rem;
+    }
+
+    @media (max-width: 600px) {
+      header { flex-direction: column; gap: .8rem; }
+      nav a { margin: 0 .6rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="logo">⛪ Cebu Christ <span>Covenant</span> Tabernacle</div>
+    <nav>
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a href="#events">Events</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <div class="hero">
+    <h1>Welcome Home</h1>
+    <p>"For where two or three gather in my name, there am I with them." — Matthew 18:20</p>
+    <a href="#services" class="btn">Join Us This Sunday</a>
+  </div>
+
+  <!-- Services -->
+  <section id="services">
+    <h2>Service Times</h2>
+    <div class="cards">
+      <div class="card">
+        <div class="icon">🕊️</div>
+        <h3>Sunday Worship</h3>
+        <p><strong>9:00 AM &amp; 11:00 AM</strong></p>
+        <p>Come worship and be encouraged.</p>
+      </div>
+      <div class="card">
+        <div class="icon">📖</div>
+        <h3>Bible Study</h3>
+        <p><strong>Wednesday · 7:00 PM</strong></p>
+        <p>Dive deeper into God's Word together.</p>
+      </div>
+      <div class="card">
+        <div class="icon">🙏</div>
+        <h3>Prayer Meeting</h3>
+        <p><strong>Friday · 6:30 PM</strong></p>
+        <p>Lift one another up in prayer.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about">
+    <h2>About Our Church</h2>
+    <p class="about-text">
+      Cebu Christ Covenant Tabernacle is a family of believers committed to knowing Jesus Christ,
+      growing in faith, and serving our community with love. Whether you've been a
+      Christian your whole life or are just beginning to explore faith, there is a
+      place for you here. We believe in the power of God's Word, the grace of the
+      cross, and the transforming work of the Holy Spirit.
+    </p>
+  </section>
+
+  <!-- Events -->
+  <section id="events">
+    <h2>Upcoming Events</h2>
+    <div class="event">
+      <div class="event-date">
+        <div class="day">15</div>
+        <div class="month">Jun</div>
+      </div>
+      <div>
+        <h3>Youth Summer Camp Kickoff</h3>
+        <p>A fun-filled weekend for teens — games, worship, and fellowship!</p>
+      </div>
+    </div>
+    <div class="event">
+      <div class="event-date">
+        <div class="day">22</div>
+        <div class="month">Jun</div>
+      </div>
+      <div>
+        <h3>Community Food Drive</h3>
+        <p>Help us collect non-perishable food items for families in need.</p>
+      </div>
+    </div>
+    <div class="event">
+      <div class="event-date">
+        <div class="day">05</div>
+        <div class="month">Jul</div>
+      </div>
+      <div>
+        <h3>Worship Night Concert</h3>
+        <p>An evening of praise and testimony under the stars.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <h2>Get In Touch</h2>
+    <div class="contact-grid">
+      <div>
+        <h3 style="color:var(--primary); margin-bottom:1rem;">Visit Us</h3>
+        <p>📍 123 Faith Avenue<br>Hope City, HC 12345</p>
+        <p style="margin-top:.8rem;">📞 (555) 123-4567</p>
+        <p>✉️ hello@cebuccc.org.ph</p>
+      </div>
+      <form onsubmit="event.preventDefault(); alert('Thank you! We will be in touch soon.');">
+        <input type="text" placeholder="Your Name" required />
+        <input type="email" placeholder="Your Email" required />
+        <textarea rows="4" placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p class="verse">"The Lord is my shepherd; I shall not want." — Psalm 23:1</p>
+    <p>&copy; 2026 Cebu Christ Covenant Tabernacle. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
